@@ -38,6 +38,6 @@ render()
 import { createClient } from 'https://esm.sh/@supabase/supabase-js'
 
 const supabase = createClient(
-  'https://supabase.com/dashboard/project/asshnecosyjrgpvxbhww/settings/api-keys/legacy',
+  'https://asshnecosyjrgpvxbhww.supabase.co',
   'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFzc2huZWNvc3lqcmdwdnhiaHd3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzk4NzMxODksImV4cCI6MjA5NTQ0OTE4OX0.3K6XQlBxYNv2bH2yQTQG_34y2TB5grkBSr5mZ75lvdo'
 )

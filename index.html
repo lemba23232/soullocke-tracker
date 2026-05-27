@@ -1,40 +1,40 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Soullocke Tracker</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
 
-<h1>Soullocke Tracker</h1>
+<h1 class="title">🔥 Soullocke Tracker</h1>
 
-<div class="container">
+<div class="top">
 
-  <input id="route" placeholder="Route / Stadt" />
-
-  <div class="row">
-
-    <div class="col">
-      <h2>Spieler 1</h2>
-      <input id="p1" placeholder="Pokemon 1" />
-    </div>
-
-    <div class="col">
-      <h2>Spieler 2</h2>
-      <input id="p2" placeholder="Pokemon 2" />
-    </div>
-
+  <div class="panel">
+    <h2>Spieler 1</h2>
+    <input id="p1" placeholder="Pokemon Spieler 1" />
   </div>
 
-  <button onclick="addEntry()">Hinzufügen</button>
+  <div class="panel center">
+    <h2>Route</h2>
+    <input id="route" placeholder="Route / Stadt" />
+    <button onclick="addEntry()">➕ Eintragen</button>
+  </div>
+
+  <div class="panel">
+    <h2>Spieler 2</h2>
+    <input id="p2" placeholder="Pokemon Spieler 2" />
+  </div>
 
 </div>
 
+<hr />
+
 <div id="list"></div>
 
-</body>
-
 <script src="app.js"></script>
+
+</body>
 </html>

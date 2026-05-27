@@ -1,9 +1,15 @@
 let data = []
 
+function getImage(name) {
+  return `https://img.pokemondb.net/sprites/home/normal/${name.toLowerCase()}.png`
+}
+
 function addEntry() {
   const route = document.getElementById("route").value
   const p1 = document.getElementById("p1").value
   const p2 = document.getElementById("p2").value
+
+  if (!route || !p1 || !p2) return
 
   data.push({
     route,
@@ -15,32 +21,46 @@ function addEntry() {
   render()
 }
 
+function changeStatus(i, val) {
+  data[i].status = val
+  render()
+}
+
 function render() {
   const list = document.getElementById("list")
   list.innerHTML = ""
 
   data.forEach((d, i) => {
+
     const div = document.createElement("div")
     div.className = "card"
 
     div.innerHTML = `
-      <h3>${d.route}</h3>
-      <p>${d.p1} ↔ ${d.p2}</p>
+      <div>
+        <h3>${d.route}</h3>
 
-      <select onchange="changeStatus(${i}, this.value)">
-        <option value="alive">Lebendig</option>
-        <option value="dead">Besiegt</option>
-        <option value="reroll">Reroll</option>
-      </select>
+        <div class="poke">
+          <img src="${getImage(d.p1)}" />
+          <span>${d.p1}</span>
+        </div>
+
+        <div class="poke">
+          <img src="${getImage(d.p2)}" />
+          <span>${d.p2}</span>
+        </div>
+      </div>
+
+      <div>
+        <select onchange="changeStatus(${i}, this.value)" class="status ${d.status}">
+          <option value="alive">Lebendig</option>
+          <option value="dead">Besiegt</option>
+          <option value="reroll">Reroll</option>
+        </select>
+      </div>
     `
 
     list.appendChild(div)
   })
-}
-
-function changeStatus(i, status) {
-  data[i].status = status
-  render()
 }
 
 import { createClient } from 'https://esm.sh/@supabase/supabase-js'

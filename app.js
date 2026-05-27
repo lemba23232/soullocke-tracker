@@ -1,39 +1,47 @@
-const app = document.getElementById("app")
+let data = []
 
-const routes = [
-  {
-    route: "Route 201",
-    pokemon1: "Shinx",
-    pokemon2: "Starly",
+function addEntry() {
+  const route = document.getElementById("route").value
+  const p1 = document.getElementById("p1").value
+  const p2 = document.getElementById("p2").value
+
+  data.push({
+    route,
+    p1,
+    p2,
     status: "alive"
-  }
-]
+  })
+
+  render()
+}
 
 function render() {
-  app.innerHTML = ""
+  const list = document.getElementById("list")
+  list.innerHTML = ""
 
-  routes.forEach(r => {
+  data.forEach((d, i) => {
     const div = document.createElement("div")
-
-    div.className = `card ${r.status}`
+    div.className = "card"
 
     div.innerHTML = `
-      <h2>${r.route}</h2>
+      <h3>${d.route}</h3>
+      <p>${d.p1} ↔ ${d.p2}</p>
 
-      <p>${r.pokemon1} ↔ ${r.pokemon2}</p>
-
-      <select>
-        <option>alive</option>
-        <option>dead</option>
-        <option>reroll</option>
+      <select onchange="changeStatus(${i}, this.value)">
+        <option value="alive">Lebendig</option>
+        <option value="dead">Besiegt</option>
+        <option value="reroll">Reroll</option>
       </select>
     `
 
-    app.appendChild(div)
+    list.appendChild(div)
   })
 }
 
-render()
+function changeStatus(i, status) {
+  data[i].status = status
+  render()
+}
 
 import { createClient } from 'https://esm.sh/@supabase/supabase-js'
 

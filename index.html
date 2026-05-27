@@ -5,13 +5,36 @@
   <title>Soullocke Tracker</title>
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-<h1>Pokémon Soullocke Tracker</h1>
+<h1>Soullocke Tracker</h1>
 
-<div id="app"></div>
+<div class="container">
 
-<script type="module" src="app.js"></script>
+  <input id="route" placeholder="Route / Stadt" />
+
+  <div class="row">
+
+    <div class="col">
+      <h2>Spieler 1</h2>
+      <input id="p1" placeholder="Pokemon 1" />
+    </div>
+
+    <div class="col">
+      <h2>Spieler 2</h2>
+      <input id="p2" placeholder="Pokemon 2" />
+    </div>
+
+  </div>
+
+  <button onclick="addEntry()">Hinzufügen</button>
+
+</div>
+
+<div id="list"></div>
 
 </body>
+
+<script src="app.js"></script>
 </html>
